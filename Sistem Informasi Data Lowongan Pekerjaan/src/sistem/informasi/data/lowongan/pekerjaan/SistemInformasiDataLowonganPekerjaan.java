@@ -15,7 +15,9 @@ public class SistemInformasiDataLowonganPekerjaan {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("HALO SAYA ABU");
+        System.out.println("ubah lagi");
+        
     }
     
 }
