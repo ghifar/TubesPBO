@@ -9,6 +9,11 @@ package sistem.informasi.data.lowongan.pekerjaan;
  *
  * @author Givanni
  */
-public class Pelamar {
+public class Pelamar extends Orang {
+
+    @Override
+    public void display() {
+    
+    }
     
 }

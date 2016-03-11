@@ -9,6 +9,10 @@ package sistem.informasi.data.lowongan.pekerjaan;
  *
  * @author Givanni
  */
-public class Perusahaan {
+public class Perusahaan extends Orang {
     
+    @Override
+    public void display(){
+        
+    }
 }
