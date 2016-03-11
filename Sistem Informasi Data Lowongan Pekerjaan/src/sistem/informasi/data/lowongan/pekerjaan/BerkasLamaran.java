@@ -12,19 +12,38 @@ package sistem.informasi.data.lowongan.pekerjaan;
 public class BerkasLamaran {
     private String jenisBerkas;
     private String tglMasukBerkas;
-    private String id;
-   
-    public BerkasLamaran(String jenisBerkas, String tgl){
-        this.jenisBerkas = jenisBerkas;
-        this.tglMasukBerkas = tgl;
+    private String idBerkas;
+    public Pelamar[] p= new Pelamar[10];
+    public int nPelamar= 0;
+
+    BerkasLamaran(String id, String jenisBerkas, String tglMsk) {
+         this.idBerkas= id;
+       this.tglMasukBerkas= tglMsk;
+        this.jenisBerkas= jenisBerkas;
+    }
+    
+    public void setIdBerkas(String id){
+        this.idBerkas= id;
+    }
+
+    public void setTglMasukBerkas(String tgl){
+        this.tglMasukBerkas= tgl;
+    }
+    public void setJenisBerkas(String jb){
+        this.jenisBerkas= jb;
     }
     
     public String getJenisBerkas(){
-        return jenisBerkas;
+      return jenisBerkas;  
     }
     
-    public String getTglMasuk(){
+    public String getIdBerkas(){
+        return this.idBerkas;
+    }
+    
+    public String getTglMasukBerkas(){
         return tglMasukBerkas;
     }
-    
+   
+  
 }

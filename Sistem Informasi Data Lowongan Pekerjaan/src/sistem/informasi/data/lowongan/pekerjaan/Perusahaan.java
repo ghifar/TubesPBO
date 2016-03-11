@@ -11,35 +11,74 @@ package sistem.informasi.data.lowongan.pekerjaan;
  * @author mendexx
  */
 public class Perusahaan extends Orang {
-    private Lowongan[] daftarLowongan;
-    private String idPerusahaan;
+     private Lowongan[] daftarLowongan = new Lowongan[10];
+    private int nLowongan = 0;
     private String nmPerusahaan;
     
     
-   @Override
-    public void display(){
+    public Perusahaan(String nm, String nmPerusahaan) {
+        super(nm);     
+        this.nmPerusahaan= nmPerusahaan;
+    }
+    
+    public Lowongan[] getDaftarLowongan(){
+        return daftarLowongan;
+    }
+    
+    public int getnLowongan(){
+        return nLowongan;
+    }
+    
+    public String getName(){
+        return this.nmPerusahaan;
+    }
+    
+    public void createLowongan(String deadline,String nmLowongan,String idLowongan){
+        
+		Lowongan lo = new Lowongan(deadline,nmLowongan, idLowongan);
+		daftarLowongan[nLowongan]  = lo;
+                nLowongan++;
+    }
+    
+	
+    public Lowongan getLowongan(int index){
+	return daftarLowongan[index];
+    }
+	
+    public Lowongan getLowongan(String id){
+		for (int i=0; i< daftarLowongan.length; i++){
+			if(id.equals(this.daftarLowongan[i].getIdLowongan())) {
+				return daftarLowongan[i];
+                        }
+                        else
+                        return null;
+                        
+                }
+                return null;
+    }
+    
+    public void remLowongan(String a){
+        int getIndex=-2;
+        for(int i = 0; i<nLowongan; i++){
+            if(a.equals(this.daftarLowongan[i].getIdLowongan())){
+                getIndex=i;
+                break;
+            }
+        }
+        for(int i=getIndex+1; i< nLowongan;i++){
+            daftarLowongan[i-1]=daftarLowongan[i];
+        }
+        nLowongan--;
+    }
+  
+    @Override
+    public void display() {
+        System.out.println("Perusahaan "+getName());
+        System.out.println("Nama Pemilik Perusahaan     : "+super.getNama());
+        for(int i= 0; i<nLowongan;i++){
+        System.out.println("Lowongan yang tersedia : "+daftarLowongan[i].getIdLowongan()+"\tLowongan "+daftarLowongan[i].getNamaLowongan()+"\t\t Deadline :"+daftarLowongan[i].getDeadline());
+        }
         
     }
-    
-    public Perusahaan (String nama, String nmPerusahaan){
-        super(nama);
-        this.nmPerusahaan=nmPerusahaan;
-    }
-    
-   public void createLowongan(){
-       
-   }
-   
-   public void removeLowongan(){
-       
-   }
-    
-   public Lowongan getLowonganbyIndex(){
-       return daftarLowongan[index];
-   } 
-   
-   public Lowongan getLowonganbyId(){
-       return getLowongan;//??
-   }
-
+        
 }

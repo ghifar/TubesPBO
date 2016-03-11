@@ -12,36 +12,80 @@ package sistem.informasi.data.lowongan.pekerjaan;
 public class Lowongan {
     private BerkasLamaran[] berkasMasuk;
     private BerkasLamaran[] berkasDiterima;
-    private String id;
-    
-    public void addBerkas (BerkasLamaran b){
-        if(<maxPesawat){
-			this.b[nPesawat]=b;
-			;
-		}
-        
+    private String idLowongan;
+    private String deadline;
+    private int nBerkas= 0;
+    private int bmasuk;
+    private String nmLowongan;
+ 
+
+    Lowongan(String idLowongan,String nm,String deadline) {
+         this.idLowongan= idLowongan;
+         this.deadline= deadline;
+         this.nmLowongan= nm;
     }
     
-    public void terimaBerkas (BerkasLamaran b){
-        
+    public String getNamaLowongan(){
+        return this.nmLowongan;
     }
     
-    public String getBerkas(){
-        return id;
+    public String getDeadline(){
+        return this.deadline;
     }
     
-    public void removeBerkasMasuk(int index){
-    
+    public String getIdLowongan(){
+        return this.idLowongan;
     }
     
-    public void bbb(){
-        
+    public void addBerkas(BerkasLamaran b){
+       this.berkasMasuk[nBerkas] = b;
+       nBerkas++;
     }
     
-    public int getBerkasDiterimabyIndeks(){
-        return ;
+    public void terimaBerkas(BerkasLamaran b){
+        if(nBerkas> bmasuk){
+        this.berkasDiterima[bmasuk]= b;
+        bmasuk++;
+        nBerkas--;
+        }
     }
+    
+    public BerkasLamaran getBerkasDiterima(int index){
+        return berkasDiterima[index];
+    }
+    
+    public BerkasLamaran getBerkasMasuk(int index){
+        return berkasMasuk[index];
+    }
+    
+    public BerkasLamaran getBerkasMasuk(String id){
+        for (int i=0; i<berkasMasuk.length; i++){
+			if(id.equals(this.berkasMasuk[i].getIdBerkas())) {
+				return berkasMasuk[i];
+                        }
+                        else
+                        return null;
+                        
+                }
+                return null;
+    }
+    
+    public String remBerkas(String index){
+        for(int i= 0; i<berkasMasuk.length; i++){
+            if(index.equals(this.berkasMasuk[i].getIdBerkas())){
+                berkasMasuk[i]= berkasMasuk[berkasMasuk.length-1];
+                return "Berkas "+index+" terhapus";
+                
+            }
+            else{
+                return "tidak ada berkas";
+            }
+            
+        }
+        return null;
+    }
+
+    
 }
-    
     
     
