@@ -7,13 +7,13 @@ package sistem.informasi.data.lowongan.pekerjaan;
 
 /**
  *
- * 
- * @author mendexx
+ * @author Givanni
  */
-public class Perusahaan {
-    String nmPerusahaan;
-    int nohp;
-    String alamat;
-    
+public class Pelamar extends Orang {
 
+    @Override
+    public void display() {
+    
+    }
+    
 }
