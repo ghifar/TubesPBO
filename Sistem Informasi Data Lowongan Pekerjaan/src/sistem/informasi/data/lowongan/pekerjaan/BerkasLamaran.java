@@ -44,6 +44,17 @@ public class BerkasLamaran {
     public String getTglMasukBerkas(){
         return tglMasukBerkas;
     }
+    
+    public int getnPelamar(){
+        return this.nPelamar;
+    }
    
-  
+    
+    public void addDataPelamar(Pelamar p){
+        if (nPelamar < this.p.length){
+			this.p[nPelamar]=p;
+			nPelamar++;
+		}
+    }
 }
+    

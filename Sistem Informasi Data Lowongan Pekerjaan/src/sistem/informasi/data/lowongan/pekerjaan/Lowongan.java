@@ -10,12 +10,12 @@ package sistem.informasi.data.lowongan.pekerjaan;
  * @author A455LN
  */
 public class Lowongan {
-    private BerkasLamaran[] berkasMasuk;
-    private BerkasLamaran[] berkasDiterima;
+    private BerkasLamaran[] berkasMasuk = new BerkasLamaran[50];
+    private BerkasLamaran[] berkasDiterima= new BerkasLamaran[50];
     private String idLowongan;
     private String deadline;
     private int nBerkas= 0;
-    private int bmasuk;
+    private int nBMasuk=0;
     private String nmLowongan;
  
 
@@ -27,6 +27,10 @@ public class Lowongan {
     
     public String getNamaLowongan(){
         return this.nmLowongan;
+    }
+    
+    public int getnBerkas(){
+        return this.nBerkas;
     }
     
     public String getDeadline(){
@@ -43,11 +47,15 @@ public class Lowongan {
     }
     
     public void terimaBerkas(BerkasLamaran b){
-        if(nBerkas> bmasuk){
-        this.berkasDiterima[bmasuk]= b;
-        bmasuk++;
+        if(nBerkas> nBMasuk){
+        this.berkasDiterima[nBMasuk]= b;
+       nBMasuk++;
         nBerkas--;
         }
+    }
+    
+    public int getnBMasuk(){
+        return this.nBMasuk;
     }
     
     public BerkasLamaran getBerkasDiterima(int index){
@@ -59,30 +67,28 @@ public class Lowongan {
     }
     
     public BerkasLamaran getBerkasMasuk(String id){
-        for (int i=0; i<berkasMasuk.length; i++){
+        for (int i=0; i<nBMasuk; i++){
 			if(id.equals(this.berkasMasuk[i].getIdBerkas())) {
 				return berkasMasuk[i];
                         }
-                        else
-                        return null;
+                      
                         
                 }
                 return null;
     }
     
-    public String remBerkas(String index){
-        for(int i= 0; i<berkasMasuk.length; i++){
+    public void remBerkas(String index){
+        int getIndex=-2;
+        for(int i = 0; i<nBerkas; i++){
             if(index.equals(this.berkasMasuk[i].getIdBerkas())){
-                berkasMasuk[i]= berkasMasuk[berkasMasuk.length-1];
-                return "Berkas "+index+" terhapus";
-                
+                getIndex=i;
+                break;
             }
-            else{
-                return "tidak ada berkas";
-            }
-            
         }
-        return null;
+        for(int i=getIndex+1; i< nBerkas;i++){
+            berkasMasuk[i-1]=berkasMasuk[i];
+        }
+        nBerkas--;
     }
 
     

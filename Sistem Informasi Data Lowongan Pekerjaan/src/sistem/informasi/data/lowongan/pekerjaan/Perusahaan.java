@@ -11,7 +11,7 @@ package sistem.informasi.data.lowongan.pekerjaan;
  * @author mendexx
  */
 public class Perusahaan extends Orang {
-     private Lowongan[] daftarLowongan = new Lowongan[10];
+    private Lowongan[] daftarLowongan = new Lowongan[10];
     private int nLowongan = 0;
     private String nmPerusahaan;
     
@@ -33,9 +33,9 @@ public class Perusahaan extends Orang {
         return this.nmPerusahaan;
     }
     
-    public void createLowongan(String deadline,String nmLowongan,String idLowongan){
+    public void createLowongan(String idLowongan,String nmLowongan,String deadline){
         
-		Lowongan lo = new Lowongan(deadline,nmLowongan, idLowongan);
+		Lowongan lo = new Lowongan(idLowongan,nmLowongan, deadline);
 		daftarLowongan[nLowongan]  = lo;
                 nLowongan++;
     }
@@ -46,13 +46,10 @@ public class Perusahaan extends Orang {
     }
 	
     public Lowongan getLowongan(String id){
-		for (int i=0; i< daftarLowongan.length; i++){
+		for (int i=0; i< nLowongan; i++){
 			if(id.equals(this.daftarLowongan[i].getIdLowongan())) {
 				return daftarLowongan[i];
                         }
-                        else
-                        return null;
-                        
                 }
                 return null;
     }
@@ -82,3 +79,4 @@ public class Perusahaan extends Orang {
     }
         
 }
+	
