@@ -14,6 +14,9 @@ public abstract class Orang {
     private int usia;
     private long nohp;
 
+    public Orang (String nama){
+        this.nama=nama;
+    }
     public String getNama() {
         return nama;
     }
