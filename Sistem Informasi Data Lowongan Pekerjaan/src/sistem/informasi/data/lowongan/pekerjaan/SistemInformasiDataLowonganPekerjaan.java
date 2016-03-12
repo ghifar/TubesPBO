@@ -16,7 +16,6 @@ public class SistemInformasiDataLowonganPekerjaan {
      */
     public static void main(String[] args) {
         System.out.println("HALO SAYA ABU");
-        System.out.println("ubah lagi");
         
     }
     
