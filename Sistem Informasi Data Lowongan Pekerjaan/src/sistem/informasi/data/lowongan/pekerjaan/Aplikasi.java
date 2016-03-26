@@ -24,17 +24,17 @@ public class Aplikasi {
         addPerusahaan("Abu Dzar Al Ghiffari", "NIKE");
         addPerusahaan("Eka Nugraha S", "ADIDAS");
         addPerusahaan("Givanni T", "ROXY");
-        getPerusahaan(0).createLowongan("L001", "kasir", "20 Maret 2018");
-        getPerusahaan(0).createLowongan("L002", "officeboy", "20 Maret 2018");
-        getPerusahaan(1).createLowongan("L001", "sales", "20 Agustus 2019");
-        getPerusahaan(2).createLowongan("L001", "manager", "21 juni 2019");
+        getPerusahaan("NIKE").createLowongan("L001", "kasir", "20 Maret 2018");
+        getPerusahaan("NIKE").createLowongan("L002", "officeboy", "20 Maret 2018");
+        getPerusahaan("ADIDAS").createLowongan("L001", "sales", "20 Agustus 2019");
+        getPerusahaan("ROXY").createLowongan("L001", "manager", "21 juni 2019");
 
-        addPelamar("uba", "P001");
-        addPelamar("ake", "P002");
-        addPelamar("innavig", "P003");
-        getPelamar(0).createBerkas("B001", "Doc", "20 maret 2099");
-        getPelamar(1).createBerkas("B002", "Docs", "23 maret 2099");
-        getPelamar(2).createBerkas("B003", "Docu", "21 maret 2099");
+        addPelamar("kaka", "P001");
+        addPelamar("kuku", "P002");
+        addPelamar("keke", "P003");
+        getPelamar("kaka").createBerkas("B001", "Doc", "20 maret 2099");
+        getPelamar("kuku").createBerkas("B002", "Docs", "23 maret 2099");
+        getPelamar("keke").createBerkas("B003", "Docu", "21 maret 2099");
     }
 
     public void addPerusahaan(String nama, String namaPerusahaan) {
@@ -48,21 +48,41 @@ public class Aplikasi {
         listPelamar.add(pe);
     }
 
-    public Pelamar getPelamar(int index) {
-        return listPelamar.get(index);
+    public Pelamar getPelamar(String nmPelamar) {
+        for (int i = 0; i < listPelamar.size(); i++) {
+            if (listPelamar.get(i).getNamaOrang().equalsIgnoreCase(nmPelamar)) {
+                return listPelamar.get(i);
+            }
+
+        }
+        return null;
     }
 
-    public Perusahaan getPerusahaan(int index) {
+    public Perusahaan getPerusahaan(String namaPerusahaan) {
+        for (int i = 0; i < listPerusahaan.size(); i++) {
+            if (listPerusahaan.get(i).getNamaPerusahaan().equalsIgnoreCase(namaPerusahaan)) {
+                return listPerusahaan.get(i);
+            }
 
-        return listPerusahaan.get(index);
+        }
+        return null;
     }
 
-    public void hapusPelamar(int index) {
-        this.listPelamar.remove(index);
+    public void hapusPelamar(String namaPelamar) {
+        for (int i = 0; i < listPelamar.size(); i++) {
+            if (listPelamar.get(i).getNamaOrang().equalsIgnoreCase(namaPelamar)) {
+                listPelamar.remove(i);
+            }
+        }
     }
 
-    public void hapusPerusahaan(int index) {
-        this.listPerusahaan.remove(index);
+    public void hapusPerusahaan(String namaPerusahaan) {
+        for (int i = 0; i < listPerusahaan.size(); i++) {
+            if (listPerusahaan.get(i).getNamaPerusahaan().equalsIgnoreCase(namaPerusahaan)) {
+                listPerusahaan.remove(i);
+            }
+
+        }
     }
 
     public void updatePerusahan(int indexYgMauDiupdate, Perusahaan dataYgBaru) {
@@ -90,7 +110,7 @@ public class Aplikasi {
 
     public void searchPelamar(String namaPelamar) {
         for (int i = 0; i < listPelamar.size(); i++) {
-            if (getPelamar(i).getNamaOrang().equalsIgnoreCase(namaPelamar)) {
+            if (listPelamar.get(i).getNamaOrang().equalsIgnoreCase(namaPelamar)) {
                 System.out.println("=============================================");
                 System.out.println("ID                      : " + listPelamar.get(i).getIdPelamar());
                 System.out.println("Nama                    : " + listPelamar.get(i).getNamaOrang());
@@ -167,16 +187,17 @@ public class Aplikasi {
 
         }
     }
-    
-    public void displayBerkasDiTerima(int indeksPerusahaan, int indeksLowongan){
-         for (int i = 0; i < getPerusahaan(indeksPerusahaan).getLowongan(indeksLowongan).getnBTerima(); i++) {
-                                    System.out.println("\t Diterima Sebagai " + getPerusahaan(indeksPerusahaan).getLowongan(indeksLowongan).getNamaLowongan());
-                                    System.out.println("id Berkas    : " + getPerusahaan(indeksPerusahaan).getLowongan(indeksLowongan).getBerkasDiterima(i).getIdBerkas());
-                                    System.out.println("jenis bekas  : " + getPerusahaan(indeksPerusahaan).getLowongan(indeksLowongan).getBerkasDiterima(i).getJenisBerkas());
-                                    System.out.println("tgl Masuk Berkas : " + getPerusahaan(indeksPerusahaan).getLowongan(indeksLowongan).getBerkasDiterima(i).getTglMasukBerkas());
-                                    System.out.println("=====================================================================");
-                                }
+
+    public void displayBerkasDiTerima(String nmPerusahaan, String namaLowongan) {
+        for (int i = 0; i < getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getnBTerima(); i++) {
+            System.out.println("\t Diterima Sebagai " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getNamaLowongan());
+            System.out.println("id Berkas    : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getIdBerkas());
+            System.out.println("jenis bekas  : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getJenisBerkas());
+            System.out.println("tgl Masuk Berkas : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getTglMasukBerkas());
+            System.out.println("=====================================================================");
+        }
     }
+
     public void menu() {
         try {
             while (true) {
@@ -216,9 +237,10 @@ public class Aplikasi {
                                 displayPerusahaan();
                                 break;
                             case 3:
-                                System.out.println("index yg di hapus : ");
-                                int in = Integer.parseInt(input2.readLine());
-                                hapusPerusahaan(in);
+                                System.out.println("Hapus perusahaan : ");
+//                                int in = Integer.parseInt(input2.readLine());
+                                String nmPerusahaan1 = input2.readLine();
+                                hapusPerusahaan(nmPerusahaan1);
                                 break;
                             case 4:
                                 System.out.println("cari nama lowongan : ");
@@ -226,54 +248,56 @@ public class Aplikasi {
                                 searchLowongan(namaLowongan);
                                 break;
                             case 5:
-                                System.out.println("Index perusahaan : ");
-                                int index = Integer.parseInt(input2.readLine());
+                                System.out.println("Nama perusahaan : ");
+//                                int index = Integer.parseInt(input2.readLine());
+                                String nmPerusahaan2 = input2.readLine();
                                 System.out.println("id Lowongan : ");
                                 String id = input2.readLine();
                                 System.out.println("Nama Lowongan : ");
                                 String nmLowongan = input2.readLine();
                                 System.out.println("Deadline : ");
                                 String deadline = input2.readLine();
-                                getPerusahaan(index).createLowongan(id, nmLowongan, deadline);
+                                getPerusahaan(nmPerusahaan2).createLowongan(id, nmLowongan, deadline);
                                 break;
                             case 6:
-                                System.out.println("index perusahaan yang ingin dihapus : ");
-                                int indexPer = Integer.parseInt(input2.readLine());
+                                System.out.println("Nama perusahaan : ");
+                                String nmPerusahaan3 = input2.readLine();
 
                                 System.out.println("id lowongan yang akan dihapus : ");
                                 String namaL = input2.readLine();
-                                getPerusahaan(indexPer).remLowongan(namaL);
+                                getPerusahaan(nmPerusahaan3).remLowongan(namaL);
                                 break;
 
                             case 7:
                                 System.out.println("cari nama perusahaan : ");
-                                String namaPerusahaan = input2.readLine();
-                                searchPerusahaan(namaPerusahaan);
+                                String nmPerusahaan4 = input2.readLine();
+                                searchPerusahaan(nmPerusahaan4);
 
                                 break;
                             case 8:
-                                System.out.println("pilih index perusahaan : ");
-                                int indexPerusahaan = Integer.parseInt(input2.readLine());
+                                System.out.println("pilih nama perusahaan : ");
+                                String nmPerusahaan5 = input2.readLine();
 
-                                System.out.println("pilih index lowongan : ");
-                                int indexlow = Integer.parseInt(input2.readLine());
-                                for (int i =0 ; i< listPerusahaan.size();i++){
-                                    for(int j=0;j< listPerusahaan.get(i).getnLowongan();j++){
-                                        System.out.println("ID berkas Pelamar : "+getPerusahaan(indexPerusahaan).getLowongan(indexlow).getBerkasMasuk(j).getIdBerkas());
+                                System.out.println("pilih nama lowongan : ");
+                                String nmlow = input2.readLine();
+                                for (int i = 0; i < listPerusahaan.size(); i++) {
+                                    for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
+                                        System.out.println("ID berkas Pelamar : " + getPerusahaan(nmPerusahaan5).getLowongan(nmlow).getBerkasMasuk(j).getIdBerkas());
+                                         break;
                                     }
                                     break;
+                                   
                                 }
-                                
-                                
+
                                 System.out.println("1. terima berkas ?");
                                 System.out.println("2. kembali ke Menu awal");
                                 int opsi = Integer.parseInt(input2.readLine());
                                 if (opsi == 1) {
-                                    System.out.println("pilih indeks berkas yang ingin diterima ");
-                                    int indeksB = Integer.parseInt(input2.readLine());
-                                    System.out.println("Pilih indeks pelamar yang ingin diterima ");
-                                    int indeksP = Integer.parseInt(input2.readLine());
-                                    getPerusahaan(indexPerusahaan).getLowongan(indexlow).terimaBerkas(getPelamar(indeksP).getBerkas(indeksB));
+                                    System.out.println("Pilih nama pelamar yang ingin diterima ");
+                                    String nmPell = input2.readLine();
+                                    System.out.println("pilih ID berkas yang ingin diterima ");
+                                    String idBerkas3 = input2.readLine();
+                                    getPerusahaan(nmPerusahaan5).getLowongan(nmlow).terimaBerkas(getPelamar(nmPell).getBerkas(idBerkas3));
                                 }
 //                                else if(opsi ==2 ){
 //                                    System.out.println("pilih id yang akan dihapus : ");
@@ -283,14 +307,14 @@ public class Aplikasi {
 
                                 break;
                             case 9:
-                                System.out.println("masukkan indeks perusahaan : ");
-                                int iindexper = Integer.parseInt(input2.readLine());
-                                System.out.println("masukkan indeks lowongan yang ingin diliat ");
-                                int iindexlow = Integer.parseInt(input2.readLine());
+                                System.out.println("masukkan Nama perusahaan : ");
+                                String nmPerusahaan7 = input2.readLine();
+                                System.out.println("masukkan nama lowongan yang ingin diliat ");
+                                String nmloww = input2.readLine();
                                 //System.out.println(getPerusahaan(iindexper).getLowongan(iindexlow).getnBTerima());
-                                displayBerkasDiTerima(iindexper, iindexlow);
+                                displayBerkasDiTerima(nmPerusahaan7, nmloww);
                                 break;
-                               
+
                         }
                         break;
 
@@ -316,8 +340,8 @@ public class Aplikasi {
                                 displayPelamar();
                                 break;
                             case 3:
-                                System.out.println("hapus index pelamar : ");
-                                int namaPel = Integer.parseInt(input2.readLine());
+                                System.out.println("hapus nama pelamar : ");
+                                String namaPel = input2.readLine();
                                 hapusPelamar(namaPel);
                                 break;
                             case 4:
@@ -326,31 +350,27 @@ public class Aplikasi {
                                 searchPelamar(nmPel);
                                 break;
                             case 5:
-                                System.out.println("Index Pelamar : ");
-                                int indexPelamar = Integer.parseInt(input2.readLine());
+                                System.out.println("Nama Pelamar : ");
+                                String nmPelamar11 = input2.readLine();
                                 System.out.println("Id berkas : ");
                                 String idBerkas = input2.readLine();
                                 System.out.println("Jenis Berkas : ");
                                 String jenisBerkas = input2.readLine();
                                 System.out.println("Tanggal Masuk Berkas : ");
                                 String tglMasuk = input2.readLine();
-                                getPelamar(indexPelamar).createBerkas(idBerkas, jenisBerkas, tglMasuk);
+                                getPelamar(nmPelamar11).createBerkas(idBerkas, jenisBerkas, tglMasuk);
                                 break;
                             case 6:
-                                System.out.println("pilih index perusahaan ");
-                                int pilihindexper = Integer.parseInt(input2.readLine());
-                                System.out.println(getPerusahaan(pilihindexper).getNamaPerusahaan());
-                                System.out.println("pilih index pelamar : ");
-                                int pilihindex = Integer.parseInt(input2.readLine());
-                                System.out.println(getPelamar(pilihindex).getNamaOrang());
-                                System.out.println("index berkas : ");
-                                int indeksBerkas = Integer.parseInt(input2.readLine());
-                                System.out.println(getPelamar(pilihindex).getBerkas(indeksBerkas).getIdBerkas());
-                                System.out.println("index lowongan : ");
-                                int indexLowongan = Integer.parseInt(input2.readLine());
-                                System.out.println(getPerusahaan(pilihindexper).getLowongan(indexLowongan).getNamaLowongan());
+                                System.out.println("Nama pelamar : ");
+                                String nmPelamar2 = input2.readLine();
+                                System.out.println("pilih nama perusahaan ");
+                                String nmPerusahaan6 = input2.readLine();
+                                System.out.println("ID berkas : ");
+                                String idBerkas1 = input2.readLine();
+                                System.out.println("nama lowongan : ");
+                                String nmLow1 = input2.readLine();
 
-                                getPerusahaan(pilihindexper).getLowongan(indexLowongan).addBerkas(getPelamar(pilihindex).getBerkas(indeksBerkas));
+                                getPerusahaan(nmPerusahaan6).getLowongan(nmLow1).addBerkas(getPelamar(nmPelamar2).getBerkas(idBerkas1));
 
                         }
                 }

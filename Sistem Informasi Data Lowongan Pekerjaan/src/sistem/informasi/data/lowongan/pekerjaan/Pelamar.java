@@ -37,6 +37,15 @@ public class Pelamar extends Orang {
     public BerkasLamaran getBerkas(int index){
         return this.berkas[index];
     }
+    
+    public BerkasLamaran getBerkas(String id){
+        for (int i=0; i< nBerkas; i++){
+			if(id.equalsIgnoreCase(this.berkas[i].getIdBerkas())) {
+				return berkas[i];
+                        }
+                }
+                return null;
+    }
 	
    public Perusahaan cariLowongan(String nama){
     for(int i = 0; i <Main.nPerusahaan; i++){

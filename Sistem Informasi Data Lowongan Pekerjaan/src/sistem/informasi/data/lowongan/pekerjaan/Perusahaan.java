@@ -49,12 +49,15 @@ public class Perusahaan extends Orang {
     
 	
     public Lowongan getLowongan(int index){
+        
 	return daftarLowongan[index];
     }
+    
+  
 	
-    public Lowongan getLowongan(String id){
+    public Lowongan getLowongan(String nmLowongan){
 		for (int i=0; i< nLowongan; i++){
-			if(id.equals(this.daftarLowongan[i].getIdLowongan())) {
+			if(nmLowongan.equalsIgnoreCase(this.daftarLowongan[i].getNamaLowongan())) {
 				return daftarLowongan[i];
                         }
                 }
