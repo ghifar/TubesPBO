@@ -40,20 +40,20 @@ public class Main {
         
         
         
-        pel1.getBerkas().addDataPelamar(pel1);
-        pel2.getBerkas().addDataPelamar(pel2);
-        
-        
-        
-       per1.getLowongan("L001").addBerkas(pel1.getBerkas());//menambahkan data pel1 pada per1
-       per1.getLowongan("L001").addBerkas(pel2.getBerkas());//menambahkan data pel2 pada per1
-        System.out.println(per1.getLowongan("L001").getnBerkas());//total berkas yang masuk
-       per1.getLowongan("L001").terimaBerkas(pel2.getBerkas());//menerima berkas yang diterima
-          System.out.println(per1.getLowongan("L001").getnBMasuk());//total berkas masuk sekarang
-         System.out.println(per1.getLowongan("L001").getnBerkas());//total berkas masuk yang diterima
-        per1.getLowongan("L001").remBerkas("B001");//mengahpus berkas "B001"
-          System.out.println(per1.getLowongan("L001").getnBerkas());//total berkas masuk sekarang
-       
+//        pel1.getBerkas().addDataPelamar(pel1);
+//        pel2.getBerkas().addDataPelamar(pel2);
+//        
+//        
+//        
+//       per1.getLowongan("L001").addBerkas(pel1.getBerkas());//menambahkan data pel1 pada per1
+//       per1.getLowongan("L001").addBerkas(pel2.getBerkas());//menambahkan data pel2 pada per1
+//        System.out.println(per1.getLowongan("L001").getnBerkas());//total berkas yang masuk
+//       per1.getLowongan("L001").terimaBerkas(pel2.getBerkas());//menerima berkas yang diterima
+//          System.out.println(per1.getLowongan("L001").getnBMasuk());//total berkas masuk sekarang
+//         System.out.println(per1.getLowongan("L001").getnBerkas());//total berkas masuk yang diterima
+//        per1.getLowongan("L001").remBerkas("B001");//mengahpus berkas "B001"
+//          System.out.println(per1.getLowongan("L001").getnBerkas());//total berkas masuk sekarang
+//       
         
         
                 

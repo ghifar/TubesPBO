@@ -10,9 +10,9 @@ package sistem.informasi.data.lowongan.pekerjaan;
  * @author Givanni
  */
 public class Pelamar extends Orang {
-   private BerkasLamaran berkas;
+   private BerkasLamaran[] berkas = new BerkasLamaran[10];
     private String idPelamar;
- 
+ private int nBerkas= 0;
     
     
     public Pelamar(String nama, String idPelamar){
@@ -22,7 +22,8 @@ public class Pelamar extends Orang {
 	
     public void createBerkas(String id,String jenisBerkas, String tglMsk){
 	BerkasLamaran b = new BerkasLamaran(id,jenisBerkas, tglMsk);
-	this.berkas = b;
+	berkas[nBerkas]= b;
+        nBerkas++;
     }
     
     public void setIdPelamar(String idPelamar){
@@ -33,8 +34,8 @@ public class Pelamar extends Orang {
         return this.idPelamar;
     }
     
-    public BerkasLamaran getBerkas(){
-        return this.berkas;
+    public BerkasLamaran getBerkas(int index){
+        return this.berkas[index];
     }
 	
    public Perusahaan cariLowongan(String nama){
@@ -47,17 +48,20 @@ public class Pelamar extends Orang {
     }
         return null;
     }
+   
+   public int getnBerkas(){
+        return nBerkas;
+    }
     
     @Override
     public void display() {
         System.out.println();
         System.out.println("Id Pelamar              : "+getIdPelamar());
-        System.out.println("Nama                    : "+super.getNama());
-        System.out.println("Id Berkas               : "+berkas.getIdBerkas());
-        System.out.println("Jenis Berkas            : "+berkas.getJenisBerkas());
-        System.out.println("Tanggal Masuk Berkas    : "+berkas.getTglMasukBerkas());
-        System.out.println("=================================================");
-        System.out.println();
+        System.out.println("Nama                    : "+super.getNamaOrang());
+//        System.out.println("Id Berkas               : "+berkas.getIdBerkas());
+//        System.out.println("Jenis Berkas            : "+berkas.getJenisBerkas());
+//        System.out.println("Tanggal Masuk Berkas    : "+berkas.getTglMasukBerkas());
+ //       System.out.println();
        
     }
     

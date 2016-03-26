@@ -12,14 +12,21 @@ package sistem.informasi.data.lowongan.pekerjaan;
  */
 public class Perusahaan extends Orang {
     private Lowongan[] daftarLowongan = new Lowongan[10];
+    
     private int nLowongan = 0;
     private String nmPerusahaan;
+    private Lowongan lowongan;
     
     
     public Perusahaan(String nm, String nmPerusahaan) {
         super(nm);     
         this.nmPerusahaan= nmPerusahaan;
     }
+    
+    public Lowongan getLowongan1(){
+        return this.lowongan;
+    }
+    
     
     public Lowongan[] getDaftarLowongan(){
         return daftarLowongan;
@@ -29,7 +36,7 @@ public class Perusahaan extends Orang {
         return nLowongan;
     }
     
-    public String getName(){
+    public String getNamaPerusahaan(){
         return this.nmPerusahaan;
     }
     
@@ -70,8 +77,8 @@ public class Perusahaan extends Orang {
   
     @Override
     public void display() {
-        System.out.println("Perusahaan "+getName());
-        System.out.println("Nama Pemilik Perusahaan     : "+super.getNama());
+        System.out.println("Perusahaan "+getNamaPerusahaan());
+        System.out.println("Nama Pemilik Perusahaan     : "+super.getNamaOrang());
         for(int i= 0; i<nLowongan;i++){
         System.out.println("Lowongan yang tersedia : "+daftarLowongan[i].getIdLowongan()+"\tLowongan "+daftarLowongan[i].getNamaLowongan()+"\t\t Deadline :"+daftarLowongan[i].getDeadline());
         }
