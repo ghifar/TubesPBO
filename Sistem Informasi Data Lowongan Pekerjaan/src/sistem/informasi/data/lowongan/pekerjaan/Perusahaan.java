@@ -87,6 +87,20 @@ public class Perusahaan extends Orang {
         }
         
     }
+
+    @Override
+    public String toString() {
+        String s= "nama Lowongan :"+this.getNamaOrang()+"\n";
+        String s1 = "perusahaan : "+this.getNamaPerusahaan()+"\n";
+        String s2 = "lowongan : \n";
+        String lowongan = "";
+        for (int i = 0; i < nLowongan; i++) {
+            lowongan += (i+1)+" "+this.daftarLowongan[i].getNamaLowongan()+"\n";
+        }
+        return s+s1+s2+lowongan;
+//        return "Perusahaan{" + "daftarLowongan=" + daftarLowongan + ", nLowongan=" + nLowongan + ", nmPerusahaan=" + nmPerusahaan + ", lowongan=" + lowongan + '}';
+    }
         
+    
 }
 	
