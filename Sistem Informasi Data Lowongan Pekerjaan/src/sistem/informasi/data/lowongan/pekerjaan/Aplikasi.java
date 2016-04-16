@@ -19,6 +19,11 @@ public class Aplikasi {
     ArrayList<Perusahaan> listPerusahaan = new ArrayList<>();
     ArrayList<Pelamar> listPelamar = new ArrayList<>();
     Scanner input = new Scanner(System.in);
+    
+    public ArrayList<Perusahaan> getListPerusahaan(){
+		return this.listPerusahaan;
+	}
+	
 
     public void data1() {
         addPerusahaan("Abu Dzar Al Ghiffari", "NIKE");
@@ -168,8 +173,7 @@ public class Aplikasi {
 
     public void displayPerusahaan() {
 //        for(Perusahaan p: listPerusahaan){
-//            System.out.println(p.getAlamat());
-//            System.out.println(p.getName());
+//            System.out.println(p.getNamaPerusahaan());
 //        }
 
         for (int i = 0; i < listPerusahaan.size(); i++) {
@@ -186,7 +190,7 @@ public class Aplikasi {
             System.out.println("==================================");
 
         }
-    }
+  }
 
     public void displayBerkasDiTerima(String nmPerusahaan, String namaLowongan) {
         for (int i = 0; i < getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getnBTerima(); i++) {
@@ -197,6 +201,8 @@ public class Aplikasi {
             System.out.println("=====================================================================");
         }
     }
+    
+   
 
     public void menu() {
         try {
