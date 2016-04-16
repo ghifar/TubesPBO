@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import sistem.informasi.data.lowongan.pekerjaan.Aplikasi;
 import sistem.informasi.data.lowongan.pekerjaan.Perusahaan;
-import view.TampilkanPerusahaan;
+import View.TampilkanPerusahaan;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,21 +30,24 @@ public class ControllerTampilkanPerusahaan implements ActionListener {
         this.tp.setVisible(true);
 
         this.tp.getBackButton().addActionListener(this);
-        this.showData();
+        this.showDatas();
     }
 
 //    public void setLp(ArrayList<Perusahaan> lp) {
 //        this.listPerusahaan = lp;
 //    }
 
-    public void showData() {
+    public void showDatas() {
 //        for (Perusahaan per : app.getListPerusahaan()) {
 //            this.tp.getHasilField().append(per.getNamaPerusahaan());
 //        }
-
-        for (Perusahaan perusahaan : app.getListPerusahaan()) {
-            this.tp.getHasilField().append(perusahaan.toString());
-        }
+            tp.getHasilField().setText(app.displayPerusahaan());
+            app.displayPerusahaan();
+            
+//        for (Perusahaan perusahaan : app.getListPerusahaan()) {
+//            this.tp.getHasilField().append(perusahaan.toString());
+//        }
+//        JOptionPane.showMessageDialog(null, app.getListPerusahaan().size());
 
 // app.displayPerusahaan();
         //this.tp.getHasilField().append(p.getNamaPerusahaan());

@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import sistem.informasi.data.lowongan.pekerjaan.Aplikasi;
 import sistem.informasi.data.lowongan.pekerjaan.Main;
-import view.MainMenu;
+import View.MainMenu;
 
 /**
  *
