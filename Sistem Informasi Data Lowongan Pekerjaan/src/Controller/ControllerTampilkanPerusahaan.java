@@ -36,25 +36,11 @@ public class ControllerTampilkanPerusahaan implements ActionListener {
 //    public void setLp(ArrayList<Perusahaan> lp) {
 //        this.listPerusahaan = lp;
 //    }
-
     public void showDatas() {
-//        for (Perusahaan per : app.getListPerusahaan()) {
-//            this.tp.getHasilField().append(per.getNamaPerusahaan());
-//        }
-            tp.getHasilField().setText(app.displayPerusahaan());
-            app.displayPerusahaan();
-            
-//        for (Perusahaan perusahaan : app.getListPerusahaan()) {
-//            this.tp.getHasilField().append(perusahaan.toString());
-//        }
-//        JOptionPane.showMessageDialog(null, app.getListPerusahaan().size());
 
-// app.displayPerusahaan();
-        //this.tp.getHasilField().append(p.getNamaPerusahaan());
-//      for(Perusahaan perusahaan : listPerusahaan){
-//          this.tp.getHasilField().append(perusahaan.getNamaPerusahaan());
-//          
-//      }
+        tp.getHasilField().setText(app.displayPerusahaan());
+        app.displayPerusahaan();
+
     }
 
     @Override
@@ -62,7 +48,7 @@ public class ControllerTampilkanPerusahaan implements ActionListener {
         Object x = ae.getSource();
         if (x.equals(tp.getBackButton())) {
             this.tp.setVisible(false);
-            ControllerMainMenu cm = new ControllerMainMenu(app);
+            ControllerPerusahaan cm = new ControllerPerusahaan(app);
 
         }
     }

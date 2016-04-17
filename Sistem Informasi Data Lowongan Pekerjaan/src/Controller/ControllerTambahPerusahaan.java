@@ -22,11 +22,11 @@ import javax.swing.JOptionPane;
 public class ControllerTambahPerusahaan implements ActionListener {
 
     TambahPerusahaan tambahperusahaan;
-   // ArrayList<Perusahaan> listPerusahaan = new ArrayList<>();
-Aplikasi app;
+    Aplikasi app;
+
     public ControllerTambahPerusahaan(Aplikasi app) {
-        this.app= app;
-                
+        this.app = app;
+
         this.tambahperusahaan = new TambahPerusahaan();
         this.tambahperusahaan.setVisible(true);
 
@@ -34,11 +34,6 @@ Aplikasi app;
         this.tambahperusahaan.getBackButton().addActionListener(this);
 
     }
-//    void setListPerusahaan(ArrayList<Perusahaan> listPerusahaan) {
-//        this.listPerusahaan = listPerusahaan;
-//    }
-
-    
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -47,24 +42,13 @@ Aplikasi app;
         if (x.equals(tambahperusahaan.getTambahButton())) {
             String namaPemilik = tambahperusahaan.getNamaPemilik().getText();
             String namaPerusahaan = tambahperusahaan.getNamaPerusahaan().getText();
-            //listPerusahaan.add(new Perusahaan(namaPemilik, namaPerusahaan));
             app.getListPerusahaan().add(new Perusahaan(namaPemilik, namaPerusahaan));
-            JOptionPane.showMessageDialog(null, app.getListPerusahaan().size());
-        } else if(x.equals(tambahperusahaan.getBackButton())){
-                this.tambahperusahaan.setVisible(false);
-                
-                ControllerPerusahaan cmm = new ControllerPerusahaan(app);
-               
-//                cmm.showData();
-            }
-            
+            JOptionPane.showMessageDialog(null,"Tambah Perusahaan Berhasil");
+        } else if (x.equals(tambahperusahaan.getBackButton())) {
+            this.tambahperusahaan.setVisible(false);
+
+            ControllerPerusahaan cmm = new ControllerPerusahaan(app);
         }
+
     }
-
-    
-
-    
-    
-    
-
-
+}

@@ -67,7 +67,7 @@ public class Perusahaan extends Orang {
     public void remLowongan(String a){
         int getIndex=-2;
         for(int i = 0; i<nLowongan; i++){
-            if(a.equals(this.daftarLowongan[i].getIdLowongan())){
+            if(this.daftarLowongan[i].getIdLowongan().equalsIgnoreCase(a)){
                 getIndex=i;
                 break;
             }

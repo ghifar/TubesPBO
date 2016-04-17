@@ -38,6 +38,9 @@ public class ControllerPerusahaan implements ActionListener{
         this.p.getTampilkanPerusahaan().addActionListener(this);
         this.p.getTampilkanPelamarLowongan().addActionListener(this);
         this.p.getTampilkanBerkasDiterima().addActionListener(this);
+        this.p.getCariLowongan().addActionListener(this);
+        this.p.getTampilkanPelamarLowongan().addActionListener(this);
+        this.p.getButtonBack().addActionListener(this);
         
     }
     
@@ -78,6 +81,19 @@ public class ControllerPerusahaan implements ActionListener{
             this.p.setVisible(false);
             ControllerHapusLowongan chl = new ControllerHapusLowongan(app);
         }
+        
+         else if(x.equals(p.getCariLowongan())){
+            this.p.setVisible(false);
+            ControllerCariLowongan chl = new ControllerCariLowongan(app);
+        }
+         else if(x.equals(p.getButtonBack())){
+             this.p.setVisible(false);
+             ControllerMainMenu cmm= new ControllerMainMenu(app);
+         }
+         else if(x.equals(p.getTampilkanPelamarLowongan())){
+             this.p.setVisible(false);
+             ControllerTampilkanPelamarLowongan ctpl = new ControllerTampilkanPelamarLowongan(app);
+         }
     }
     
     

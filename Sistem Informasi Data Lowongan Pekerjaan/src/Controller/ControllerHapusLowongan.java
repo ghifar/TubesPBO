@@ -33,16 +33,15 @@ public class ControllerHapusLowongan implements ActionListener{
         Object x = ae.getSource();
         if(x.equals(hl.getHapusButton())){
             String namaPerusahaan = hl.getNamaPerusahaan().getText();
-            String namaLowongan = hl.getNamaLowongan().getText();
+            String IdLowongan = hl.getIdLowongan().getText();
             
-            app.getPerusahaan(namaPerusahaan).remLowongan(namaLowongan);
+            app.getPerusahaan(namaPerusahaan).remLowongan(IdLowongan);
             JOptionPane.showMessageDialog(null, "terhapus");
         }
         
         else if(x.equals(hl.getBackButton())){
             this.hl.setVisible(false);
-            ControllerPerusahaan cp = new ControllerPerusahaan(app);
-           
+           ControllerPerusahaan cp = new ControllerPerusahaan(app);
         }
     }
     

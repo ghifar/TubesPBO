@@ -23,6 +23,10 @@ public class Aplikasi {
     public ArrayList<Perusahaan> getListPerusahaan() {
         return this.listPerusahaan;
     }
+    
+    public ArrayList<Pelamar> getListPelamar(){
+                return this.listPelamar;
+    }
 
     public void data1() {
         addPerusahaan("Abu Dzar Al Ghiffari", "NIKE");
@@ -116,77 +120,82 @@ public class Aplikasi {
         
     }
 
-    public void searchPelamar(String namaPelamar) {
+   public String searchPelamar(String namaPelamar) {
+        String s="";
         
         for (int i = 0; i < listPelamar.size(); i++) {
             if (listPelamar.get(i).getNamaOrang().equalsIgnoreCase(namaPelamar)) {
-                System.out.println("=============================================");
-                System.out.println("ID                      : " + listPelamar.get(i).getIdPelamar());
-                System.out.println("Nama                    : " + listPelamar.get(i).getNamaOrang());
+                s=s+"=============================================\n";
+                s=s+"ID                      : " + listPelamar.get(i).getIdPelamar()+"\n";
+                s=s+"Nama                    : " + listPelamar.get(i).getNamaOrang()+"\n";
 
-                System.out.println("Berkas : ");
+                s=s+"Berkas : ";
                 if (listPelamar.get(i).getnBerkas() != 0) {
                     for (int j = 0; j < listPelamar.get(i).getnBerkas(); j++) {
-                        System.out.println("Id berkas           : " + listPelamar.get(i).getBerkas(j).getIdBerkas());
-                        System.out.println("Jenis Berkas        : " + listPelamar.get(i).getBerkas(j).getJenisBerkas());
-                        System.out.println("Tgl Masuk Berkas    : " + listPelamar.get(i).getBerkas(j).getTglMasukBerkas());
+                        s=s+"Id berkas           : " + listPelamar.get(i).getBerkas(j).getIdBerkas()+"\n";
+                        s=s+"Jenis Berkas        : " + listPelamar.get(i).getBerkas(j).getJenisBerkas()+"\n";
+                        s=s+"Tgl Masuk Berkas    : " + listPelamar.get(i).getBerkas(j).getTglMasukBerkas()+"\n";
                     }
                 } else {
-                    System.out.println("Berkas belum diisi");
+                    s=s+"Berkas belum diisi\n";
                 }
-                System.out.println("===============================================");
+                s=s+"===============================================\n";
 
             }
         }
+        return s;
     }
 
-    public void searchLowongan(String namaLowongan) {
+    public String searchLowongan(String namaLowongan) {
+        String s="";
         for (int i = 0; i < listPerusahaan.size(); i++) {
             for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
                 if (listPerusahaan.get(i).getLowongan(j).getNamaLowongan().equalsIgnoreCase(namaLowongan)) {
-                    System.out.println("lowongan tersebut tersedia pada perusahaan " + listPerusahaan.get(i).getNamaPerusahaan());
+                    s= s+"Lowongan tersebut tersedia pada perusahaan " + listPerusahaan.get(i).getNamaPerusahaan()+"\n";
 
                 }
             }
         }
+        return s;
     }
 
-    public void displayPelamar() {
+   public String displayPelamar() {
+        String s = " ";
+    
         for (int i = 0; i < listPelamar.size(); i++) {
-            System.out.println("=============================================");
-            System.out.println("ID                      : " + listPelamar.get(i).getIdPelamar());
-            System.out.println("Nama                    : " + listPelamar.get(i).getNamaOrang());
+            s = s +"=============================================\n";
+            s = s +"ID                      : " + listPelamar.get(i).getIdPelamar()+"\n";
+            s = s +"Nama                    : " + listPelamar.get(i).getNamaOrang()+"\n";
 
-            System.out.println("Berkas : ");
+            s=s+"Berkas : \n";
             if (listPelamar.get(i).getnBerkas() != 0) {
                 for (int j = 0; j < listPelamar.get(i).getnBerkas(); j++) {
-                    System.out.println("Id berkas           : " + listPelamar.get(i).getBerkas(j).getIdBerkas());
-                    System.out.println("Jenis Berkas        : " + listPelamar.get(i).getBerkas(j).getJenisBerkas());
-                    System.out.println("Tgl Masuk Berkas    : " + listPelamar.get(i).getBerkas(j).getTglMasukBerkas());
+                    s=s+"Id berkas           : " + listPelamar.get(i).getBerkas(j).getIdBerkas()+"\n";
+                    s=s+"Jenis Berkas        : " + listPelamar.get(i).getBerkas(j).getJenisBerkas()+"\n";
+                    s=s+"Tgl Masuk Berkas    : " + listPelamar.get(i).getBerkas(j).getTglMasukBerkas()+"\n";
 
                 }
 
             } else {
-                System.out.println("Berkas belum diisi");
+                s=s+"Berkas belum diisi\n";
             }
-            System.out.println("===============================================");
+            s=s+"===============================================\n";
 
         }
-
+        return s;
     }
 
     public String displayPerusahaan() {
-        //        for(Perusahaan p: listPerusahaan){
-        //            System.out.println(p.getNamaPerusahaan());
-        //        }
+       
         String s = "";
         for (int i = 0; i < listPerusahaan.size(); i++) {
             s=s+"===============" + listPerusahaan.get(i).getNamaPerusahaan() + "===============\n";
             s=s+"pemilik perusahaan : " + listPerusahaan.get(i).getNamaOrang()+"\n";
-            s=s+"Lowongan yang tersedia : ";
+            s=s+"Lowongan yang tersedia : \n";
             if (listPerusahaan.get(i).getnLowongan() != 0) {
                 for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
-                    s=s+(j + 1) + ". " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan()+"\n";
+                    s=s+(j + 1) + ".) " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan()+"\t";
+                    s=s+"Deadline : "+listPerusahaan.get(i).getLowongan(j).getDeadline()+"\n";
                 }
             } else {
                 s=s+"Tidak ada\n";
@@ -243,7 +252,7 @@ public class Aplikasi {
                                 addPerusahaan(nama, namaP);
                                 break;
                             case 2:
-                                displayPerusahaan();
+                                System.out.println(displayPerusahaan()); 
                                 break;
                             case 3:
                                 System.out.println("Hapus perusahaan : ");
@@ -385,7 +394,7 @@ public class Aplikasi {
                 }
             }
         } catch (ArrayIndexOutOfBoundsException arr) {
-            System.out.println("kelebihan array");
+            System.out.println("kelebihan array "+arr.getMessage() );
         } catch (Throwable ex) {
             System.out.println("error : " + ex.getMessage());
         }

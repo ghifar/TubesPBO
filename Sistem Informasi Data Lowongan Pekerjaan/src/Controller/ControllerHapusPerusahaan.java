@@ -38,12 +38,12 @@ public class ControllerHapusPerusahaan implements ActionListener {
         Object x = ae.getSource();
         if (x.equals(hp.getBackButton())) {
             this.hp.setVisible(false);
-            ControllerMainMenu cmm = new ControllerMainMenu(app);
+            ControllerPerusahaan cmm = new ControllerPerusahaan(app);
 
         } else if (x.equals(hp.getHapusButton())) {
             String namaPerusahaan = hp.getHapusTextField().getText();
             app.hapusPerusahaan(namaPerusahaan);
-            JOptionPane.showMessageDialog(null, "Terhapus");
+            JOptionPane.showMessageDialog(null, "Perusahaan Berhasil Dihapus");
 
 
         }

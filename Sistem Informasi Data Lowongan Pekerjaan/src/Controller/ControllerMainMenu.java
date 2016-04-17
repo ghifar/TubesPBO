@@ -46,6 +46,11 @@ public class ControllerMainMenu implements ActionListener {
             ControllerPerusahaan cmm= new ControllerPerusahaan(app);
             
         }
+        
+        else if(x.equals(mainmenu.getPelamar())){
+            this.mainmenu.setVisible(false);
+            ControllerPelamar cp = new ControllerPelamar(app);
+        }
 
     }
 
