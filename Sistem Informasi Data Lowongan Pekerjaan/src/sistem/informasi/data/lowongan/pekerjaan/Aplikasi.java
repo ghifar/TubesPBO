@@ -23,8 +23,8 @@ public class Aplikasi {
     public ArrayList<Perusahaan> getListPerusahaan(){
 		return this.listPerusahaan;
 	}
-	
-
+    
+ 
     public void data1() {
         addPerusahaan("Abu Dzar Al Ghiffari", "NIKE");
         addPerusahaan("Eka Nugraha S", "ADIDAS");
