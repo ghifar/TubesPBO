@@ -13,6 +13,7 @@ import sistem.informasi.data.lowongan.pekerjaan.Aplikasi;
 import sistem.informasi.data.lowongan.pekerjaan.Perusahaan;
 import view.MainMenu;
 import view.TambahPerusahaan;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,10 +49,11 @@ Aplikasi app;
             String namaPerusahaan = tambahperusahaan.getNamaPerusahaan().getText();
             //listPerusahaan.add(new Perusahaan(namaPemilik, namaPerusahaan));
             app.getListPerusahaan().add(new Perusahaan(namaPemilik, namaPerusahaan));
+            JOptionPane.showMessageDialog(null, app.getListPerusahaan().size());
         } else if(x.equals(tambahperusahaan.getBackButton())){
                 this.tambahperusahaan.setVisible(false);
                 
-                ControllerTampilkanPerusahaan cmm = new ControllerTampilkanPerusahaan(app);
+                ControllerPerusahaan cmm = new ControllerPerusahaan(app);
                
 //                cmm.showData();
             }

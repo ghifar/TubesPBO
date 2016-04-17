@@ -56,8 +56,27 @@ public class ControllerPerusahaan implements ActionListener{
         else if(x.equals(p.getTampilkanPerusahaan())){
             this.p.setVisible(false);
             ControllerTampilkanPerusahaan ctp = new ControllerTampilkanPerusahaan(app);
-            ctp.showData();
+            ctp.showDatas();
             
+        }
+        
+        else if(x.equals(p.getHapusPerusahaan())){
+            ControllerHapusPerusahaan chp = new ControllerHapusPerusahaan(app);
+            
+        }
+        
+        else if(x.equals(p.getCariPerusahaan())){
+        ControllerCariPerusahaan ccp = new ControllerCariPerusahaan(app);
+    }
+        
+        else if(x.equals(p.getTambahLowongan())){
+            this.p.setVisible(false);
+            ControllerTambahLowongan ctl = new ControllerTambahLowongan(app);
+        }
+        
+        else if(x.equals(p.getHapusLowongan())){
+            this.p.setVisible(false);
+            ControllerHapusLowongan chl = new ControllerHapusLowongan(app);
         }
     }
     
